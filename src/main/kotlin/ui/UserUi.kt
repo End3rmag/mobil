@@ -33,6 +33,7 @@ fun registration(){
 
     )
     userUseCase.registration(registrationRequest)
+
 }
     fun autorize(){
         println("Введите вашу почту")
@@ -59,10 +60,6 @@ fun registration(){
     fun changePassword(){
         checkNotNull(userauto){
             "нет авторизации"
-        }
-        val email = readlnOrNull()
-        checkNotNull(email){
-            "Почта не должна отсутствовать"
         }
         println("Введите ваш пароль")
         val password = readlnOrNull()
@@ -102,6 +99,7 @@ fun registration(){
             newPhone = phone,
             newAddress = address
         )
+        userUseCase.changeProfile(changeProfileRequest)
     }
 
 
@@ -117,11 +115,11 @@ fun registration(){
         }
         if(!userResponse.phone.isNullOrBlank()){
             printOutput.appendLine()
-            printOutput.append("Ваша фамилия ${userResponse.phone}")
+            printOutput.append("Ваш телефон ${userResponse.phone}")
         }
         if(!userResponse.address.isNullOrBlank()){
             printOutput.appendLine()
-            printOutput.append("Ваша фамилия ${userResponse.address}")
+            printOutput.append("Ваш адесс ${userResponse.address}")
         }
         return printOutput.toString()
     }

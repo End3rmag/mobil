@@ -1,6 +1,17 @@
 package org.example.data
 
+import org.example.data.Model.ShoesDTO
 import org.example.data.Model.UserDTO
+
+val shoesList = listOf(
+    ShoesDTO(
+        shoesId = 1,
+        shoesName = "Nike",
+        shoesDescription = "dasgasdgsdagsdafd",
+        shoesURL = "3",
+        cotegory = "1"
+    )
+)
 
 
 val userList = listOf(
