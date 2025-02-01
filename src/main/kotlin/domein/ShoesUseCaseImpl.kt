@@ -12,10 +12,10 @@ class ShoesUseCaseImpl(private val shoesRepository: ShoesRepository): ShoesUseCa
     override fun addShoes(shoesAddRequest: ShoesAddRequest): ShoesResponse {
         val newShoes = ShoesDTO(
             shoesId = shoesAddRequest.shoesId,
-            shoesURL = shoesAddRequest.shoesUrl,
+            shoesURL = shoesAddRequest.shoesUrl.toString(),
             shoesName = shoesAddRequest.shoesName,
             shoesDescription = shoesAddRequest.shoesDescription,
-            cotegory = shoesAddRequest.category
+            cotegory = shoesAddRequest.category.toString()
         )
         shoesSourse.add(newShoes)
 

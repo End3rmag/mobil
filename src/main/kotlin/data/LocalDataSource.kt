@@ -19,7 +19,7 @@ val userList = listOf(
         Id =1,
         firstName ="Viva",
         password = "123",
-        email = "йцу@mail.ru"
+        email = "123"
 
     ),
     UserDTO(

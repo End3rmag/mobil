@@ -10,8 +10,8 @@ class ShoesRepositoryImpl:ShoesRepository {
             shoesId = shoesSource.size+1,
             shoesName = shoesAddRequest.shoesName,
             shoesDescription = shoesAddRequest.shoesDescription,
-            shoesURL = shoesAddRequest.shoesUrl,
-            cotegory = shoesAddRequest.category
+            shoesURL = shoesAddRequest.shoesUrl.toString(),
+            cotegory = shoesAddRequest.category.toString()
         )
         shoesSource.add(newShoes)
         return newShoes

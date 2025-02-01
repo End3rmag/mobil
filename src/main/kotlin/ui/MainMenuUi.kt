@@ -1,7 +1,8 @@
 package org.example.ui
 
-data class MainMenuUi(private val userUi: UserUi) {
+import org.example.data.Model.ShoesDTO
 
+data class MainMenuUi( val userUi: UserUi, var shoesUi: ShoesUi) {
     val menuItems = listOf(
         "1.Авторизоваться",
         "2.Зарегистрироваться",
@@ -15,7 +16,11 @@ data class MainMenuUi(private val userUi: UserUi) {
             println(e.message)
             userUi.userauto?.let {
                 displayMenuForAutorization()
-                }
+            }
+            println(e.message)
+            shoesUi.shoesadd.let {
+                displayMenuForAutorization()
+            }
         }
 
     }
@@ -25,10 +30,10 @@ data class MainMenuUi(private val userUi: UserUi) {
         if (menuPos == null) displayAutorizationMenu()
         when (menuPos){
             1 ->{
-                    dispMenuItem {
-                        userUi.autorize()
-                        displayMenuForAutorization()
-                    }
+                dispMenuItem {
+                    userUi.autorize()
+                    displayMenuForAutorization()
+                }
             }
             2 -> {
                 dispMenuItem {
@@ -46,7 +51,9 @@ data class MainMenuUi(private val userUi: UserUi) {
     val profilItems = listOf(
         "1.Сменить пароль",
         "2.Изменить профиль",
-        "3.Выйти"
+        "3.Мои товары",
+        "4.Каталог",
+        "5.Выйти"
 
     )
     fun displayMenuForAutorization(){
@@ -56,19 +63,86 @@ data class MainMenuUi(private val userUi: UserUi) {
         when (menuPos){
             1->
                 dispMenuItem{
-                userUi.changePassword()
+                    userUi.changePassword()
                     displayMenuForAutorization()
-            }
+                }
             2->
                 dispMenuItem{
-                userUi.changeProfile()
+                    userUi.changeProfile()
                     displayMenuForAutorization()
-            }
+                }
             3->{
-                return
+                displayMyKatalog()
+            }
+            4->{
+                displayKatalog()
+            }
+            5->{
+            return
             }
             else->{
                 displayAutorizationMenu()
+            }
+        }
+    }
+    val myKatalog = listOf(
+        "1.Создать объявление",
+        "2.Удалить объявление",
+        "3.Выйти"
+    )
+
+    fun displayMyKatalog(){
+        println(profilItems.joinToString("\n"))
+        val menuPos = readlnOrNull()?.toIntOrNull()
+        if (menuPos == null) displayMyKatalog()
+        when (menuPos){
+            1->{
+                dispMenuItem {
+                    shoesUi.Addshoes()
+                    displayMyKatalog()
+                }
+            }
+            2->{
+                dispMenuItem {
+                    shoesUi.removeShoes(shoesID = Integer.parseInt(menuPos.toString()))
+                }
+            }
+            3->{
+                return(displayMenuForAutorization())
+            }
+            else->{
+                displayMyKatalog()
+            }
+        }
+    }
+
+    val katalogs = listOf(
+        "1.Посмотореть все",
+        "2.Найти товар",
+        "3.Выйти"
+    )
+
+    fun displayKatalog(){
+        println(katalogs.joinToString("\n"))
+        val menuPos = readlnOrNull()?.toIntOrNull()
+        if (menuPos == null) displayKatalog()
+        when (menuPos){
+            1->{
+                dispMenuItem {
+                    shoesUi.showAllShoes()
+                    displayKatalog()
+                }
+            }
+            2->{
+                dispMenuItem {
+                    shoesUi.showShoes(shoesID = Integer.parseInt(menuPos.toString()))
+                }
+            }
+            3->{
+                return(displayMenuForAutorization())
+            }
+            else->{
+                displayKatalog()
             }
         }
     }
