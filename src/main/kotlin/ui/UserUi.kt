@@ -91,6 +91,7 @@ fun registration(){
 
         println("Введите ваш адресс")
         val address = readlnOrNull()
+
         val changeProfileRequest = ChangeProfileRequest(
             Id = userauto!!.Id,
             newFirstName = firstName,

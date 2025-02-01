@@ -17,11 +17,15 @@ class ShoesRepositoryImpl:ShoesRepository {
         return newShoes
     }
 
+
+
     override fun getAllShoes():List<ShoesDTO> = shoesSource
 
 
     override fun removeShoes(shoesID:Int):Boolean {
         return shoesSource.removeIf{it.shoesId == shoesID}
     }
+
+
 }
 

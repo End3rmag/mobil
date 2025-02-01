@@ -7,4 +7,5 @@ interface ShoesRepository {
     fun addShoes(shoesAddRequest: ShoesAddRequest):ShoesDTO
     fun getAllShoes():List<ShoesDTO>
     fun removeShoes(shoesID:Int):Boolean
+
 }

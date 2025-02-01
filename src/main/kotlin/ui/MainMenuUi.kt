@@ -1,7 +1,5 @@
 package org.example.ui
 
-import org.example.data.Model.ShoesDTO
-
 data class MainMenuUi( val userUi: UserUi, var shoesUi: ShoesUi) {
     val menuItems = listOf(
         "1.Авторизоваться",
@@ -104,7 +102,8 @@ data class MainMenuUi( val userUi: UserUi, var shoesUi: ShoesUi) {
             }
             2->{
                 dispMenuItem {
-                    shoesUi.removeShoes(shoesID = Integer.parseInt(menuPos.toString()))
+                    shoesUi.removeShoes(shoesUi)
+                    displayMyKatalog()
                 }
             }
             3->{
@@ -135,7 +134,11 @@ data class MainMenuUi( val userUi: UserUi, var shoesUi: ShoesUi) {
             }
             2->{
                 dispMenuItem {
-                    shoesUi.showShoes(shoesID = Integer.parseInt(menuPos.toString()))
+                    println("Введите номер товара")
+                    val nado = readlnOrNull()?.toIntOrNull()
+                    checkNotNull(nado)
+                    shoesUi.showShoes(nado)
+                    displayKatalog()
                 }
             }
             3->{

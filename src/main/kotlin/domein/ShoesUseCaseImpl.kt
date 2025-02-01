@@ -17,7 +17,7 @@ class ShoesUseCaseImpl(private val shoesRepository: ShoesRepository): ShoesUseCa
             shoesDescription = shoesAddRequest.shoesDescription,
             cotegory = shoesAddRequest.category.toString()
         )
-        shoesSourse.add(newShoes)
+        shoesRepository.addShoes(shoesAddRequest)
 
         return ShoesDTOToShoesResponse(newShoes)
     }

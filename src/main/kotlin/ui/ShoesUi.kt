@@ -1,7 +1,5 @@
 package org.example.ui
 
-import org.example.data.Model.ShoesDTO
-import org.example.data.shoesList
 import org.example.domein.Request.ShoesAddRequest
 import org.example.domein.Response.ShoesResponse
 import org.example.domein.ShoesUseCase
@@ -9,7 +7,7 @@ import org.example.domein.ShoesUseCase
 class ShoesUi(private val shoesUseCase: ShoesUseCase){
     var shoesadd: ShoesResponse? = null
 
-    fun Addshoes(){
+    fun Addshoes() {
         println("Назовите товар!")
         val shoesname = readlnOrNull()
         checkNotNull(shoesname){
@@ -25,27 +23,36 @@ class ShoesUi(private val shoesUseCase: ShoesUseCase){
         val category = readlnOrNull()
 
         val addShoesRequest = ShoesAddRequest(
-            shoesId  = shoesadd!!.shoesId,
+            shoesId = shoesadd!!.shoesId,
             shoesName = shoesname,
             shoesDescription = shoesDescription,
             shoesUrl = shoesUrl,
             category = category
         )
-        shoesUseCase.addShoes(addShoesRequest)
+        val shoe = shoesUseCase.addShoes(addShoesRequest)
+        shoesadd=shoe
+        println(ShoesResponseToString(shoe))
     }
 
     fun showAllShoes(){
-        shoesUseCase.returnAllShoes()
-        println(ShoesResponseToString(shoesadd))
+        val vseshoes = shoesUseCase.returnAllShoes()
+        println("Название${ vseshoes.map { shoesUi -> shoesUi.shoesName }}")
+        println("Ссылка${ vseshoes.map { shoesUi -> shoesUi.shoesUrl } }")
+        println("Описание${ vseshoes.map { shoesUi -> shoesUi.shoesDescription } }")
+        println("Категория${vseshoes.map { shoesUi ->shoesUi.category}}")
+
+
     }
 
     fun showShoes(shoesID:Int){
-        shoesUseCase.returnShoes(shoesID)
-        println(ShoesResponseToString(shoesadd))
+        val search = shoesUseCase.returnShoes(shoesID)
+        println(ShoesResponseToString(search))
     }
 
-    fun removeShoes(shoesID:Int){
-        shoesUseCase.returnShoes(shoesID)
+    fun removeShoes(shoesID: ShoesUi){
+        val delete = readln()
+            shoesUseCase.removeShoes(delete.toInt())
+        println("Товар удалён")
     }
 
 
