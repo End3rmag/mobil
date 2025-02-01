@@ -92,7 +92,7 @@ data class MainMenuUi( val userUi: UserUi, var shoesUi: ShoesUi) {
     )
 
     fun displayMyKatalog(){
-        println(profilItems.joinToString("\n"))
+        println(myKatalog.joinToString("\n"))
         val menuPos = readlnOrNull()?.toIntOrNull()
         if (menuPos == null) displayMyKatalog()
         when (menuPos){
