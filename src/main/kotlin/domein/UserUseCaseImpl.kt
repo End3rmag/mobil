@@ -1,5 +1,6 @@
 package org.example.domein
 
+import org.example.data.FavouriteRepository
 import org.example.data.UserRepository
 import org.example.domein.Request.AuthorizeRequest
 import org.example.domein.Request.ChangePasswordRequest
@@ -7,7 +8,7 @@ import org.example.domein.Request.ChangeProfileRequest
 import org.example.domein.Request.RegistrationRequest
 import org.example.domein.Response.UserResponse
 
-class UserUseCaseImpl(private val userRepository: UserRepository): UserUseCase {
+class UserUseCaseImpl(private val userRepository: UserRepository, private val favouriteRepository: FavouriteRepository): UserUseCase {
     override fun authorize(authorizeRequest: AuthorizeRequest): UserResponse {
         val findUser = userRepository.getAllUsers().firstOrNull{it.email == authorizeRequest.email}
         checkNotNull(findUser){
@@ -16,6 +17,7 @@ class UserUseCaseImpl(private val userRepository: UserRepository): UserUseCase {
         require(findUser.password  == authorizeRequest.password){
             "Пароли не совпадают"
         }
+
 return  UserDTOToUserResponse(findUser)
     }
 

@@ -1,12 +1,13 @@
 package org.example
 
-import org.example.data.ShoesRepositoryImpl
+import ShoesRepositoryImpl
+import ShoesUi
+import ShoesUseCaseImpl
 import org.example.data.UserRepository
 import org.example.data.UserRepositoryImpl
-import org.example.domein.ShoesUseCaseImpl
 import org.example.domein.UserUseCaseImpl
 import org.example.ui.MainMenuUi
-import org.example.ui.ShoesUi
+
 import org.example.ui.UserUi
 
 
