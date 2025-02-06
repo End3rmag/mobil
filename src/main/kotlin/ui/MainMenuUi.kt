@@ -12,15 +12,13 @@ data class MainMenuUi( val userUi: UserUi, var shoesUi: ShoesUi) {
     private fun dispMenuItem(menuItem: () -> Unit){
         try {
             menuItem()
-        }catch (e:Exception){
+        }catch (e:Exception) {
             println(e.message)
             userUi.userauto?.let {
                 displayMenuForAutorization()
+                return
             }
-            println(e.message)
-            shoesUi.addShoes().let {
-                displayMenuForAutorization()
-            }
+            displayAutorizationMenu()
         }
 
     }
@@ -55,6 +53,7 @@ data class MainMenuUi( val userUi: UserUi, var shoesUi: ShoesUi) {
         "4.Выйти"
 
     )
+
     fun displayMenuForAutorization(){
         println(profilItems.joinToString("\n"))
         val menuPos = readlnOrNull()?.toIntOrNull()
@@ -82,9 +81,8 @@ data class MainMenuUi( val userUi: UserUi, var shoesUi: ShoesUi) {
         }
     }
     val Katalog = listOf(
-        "1.Создать объявление",
-        "2.Удалить объявление",
-        "3.Посмотреть каталог",
+        "1.Посмотреть каталог",
+        "2.Мои Объявления",
         "4.Выйти"
     )
 
@@ -93,25 +91,19 @@ data class MainMenuUi( val userUi: UserUi, var shoesUi: ShoesUi) {
         val menuPos = readlnOrNull()?.toIntOrNull()
         if (menuPos == null) displayKatalog()
         when (menuPos){
-            1->{
-                dispMenuItem {
-                    shoesUi.addShoes()
-                    displayKatalog()
-                }
-            }
-            2->{
-                dispMenuItem {
-                    shoesUi.removeShoesById()
-                    displayKatalog()
-                }
-            }
-            3-> {
+
+            1-> {
                 dispMenuItem {
                     shoesUi.getAllFilterShoes()
                     displayKatalog()
                 }
             }
-            4->{
+            2->{
+                dispMenuItem {
+                    dispMyKatalog()
+                }
+            }
+            3->{
                 return (displayMenuForAutorization())
             }
             else->{
@@ -119,4 +111,36 @@ data class MainMenuUi( val userUi: UserUi, var shoesUi: ShoesUi) {
             }
         }
     }
+
+    val Mykatalog  = listOf(
+        "1.Создать",
+        "2.Редактировать",
+        "3.Удалить",
+        "4.Выход"
+    )
+
+    fun  dispMyKatalog(){
+        println(Mykatalog.joinToString ("\n"))
+        val menuPos = readlnOrNull()?.toIntOrNull()
+        if(menuPos == null) dispMyKatalog()
+        when(menuPos){
+
+            1->{
+
+            }
+            2->{
+
+            }
+            3->{
+
+            }
+            4->{
+                return displayKatalog()
+            }
+            else->{
+                dispMyKatalog()
+            }
+        }
+    }
+
 }

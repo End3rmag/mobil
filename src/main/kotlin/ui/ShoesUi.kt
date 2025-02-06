@@ -54,7 +54,7 @@ class ShoesUi(private val shoesUseCase: ShoesUseCase) {
         println("Введите фильтр по названию (без фильтра - нажмите enter)")
         val shoesName = readlnOrNull()
         val getAllFilterShoesRequest = GetAllFilterShoesRequest(
-            shoesName = shoesName
+            shoesName = shoesName.toString()
         )
         val shoesList = shoesUseCase.getAllFilterShoes(getAllFilterShoesRequest)
         println("Найденная обувь по ващему запросу:")

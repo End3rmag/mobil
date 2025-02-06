@@ -7,6 +7,6 @@ interface FavouriteRepository {
     fun getAllFavourites()
     fun addFavourites(vararg addFavouriteRequest: AddFavouriteRequest)
     fun removeFavourites()
-    fun getFavouritesByUserId()
+    fun getFavouritesByUserId(userId:Int): IntArray
 
 }

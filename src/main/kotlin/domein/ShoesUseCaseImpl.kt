@@ -6,7 +6,7 @@ import org.example.domein.Response.ShoesResponse
 import org.example.domein.ShoesDTOToShoesResponse
 import org.example.domein.ShoesUseCase
 
-class ShoesUseCaseImpl(private val shoesRepository: ShoesRepository.ShoesRepository): ShoesUseCase {
+class ShoesUseCaseImpl(private val shoesRepository: ShoesRepository): ShoesUseCase {
     override fun addShoes(addShoesRequest: ShoesAddRequest): ShoesResponse {
         val isUnique = shoesRepository.getAllShoes().filter {
                 shoes -> shoes.shoesName == addShoesRequest.shoesName

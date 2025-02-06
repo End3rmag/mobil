@@ -4,7 +4,7 @@ import org.example.data.shoesList
 import org.example.domein.Request.ShoesAddRequest
 import org.example.domein.Request.UpdateShoesRequest
 
-class ShoesRepositoryImpl: ShoesRepository.ShoesRepository {
+class ShoesRepositoryImpl: ShoesRepository {
     private val shoesSource: MutableList<ShoesDTO> = shoesList.toMutableList()
     override fun addShoes(addShoesRequest: ShoesAddRequest): ShoesDTO {
         val newShoes = ShoesDTO(

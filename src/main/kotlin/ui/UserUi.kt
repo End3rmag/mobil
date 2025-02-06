@@ -1,9 +1,11 @@
 package org.example.ui
 
+import org.example.data.favouriteList
 import org.example.domein.Request.AuthorizeRequest
 import org.example.domein.Request.ChangePasswordRequest
 import org.example.domein.Request.ChangeProfileRequest
 import org.example.domein.Request.RegistrationRequest
+import org.example.domein.Response.ShoesResponse
 import org.example.domein.Response.UserResponse
 import org.example.domein.UserUseCase
 import java.lang.StringBuilder
@@ -105,23 +107,34 @@ fun registration(){
 
 
 
-    fun UserResponseToString(userResponse: UserResponse): String{
+    fun UserResponseToString(userResponse: UserResponse): String {
         val printOutput = StringBuilder()
         printOutput.append("Ваша почта ${userResponse.email}")
         printOutput.appendLine()
         printOutput.append("Ваше имя ${userResponse.firstName}")
-        if(!userResponse.lasnName.isNullOrBlank()){
+        if (!userResponse.lasnName.isNullOrBlank()) {
             printOutput.appendLine()
             printOutput.append("Ваша фамилия ${userResponse.lasnName}")
         }
-        if(!userResponse.phone.isNullOrBlank()){
+        if (!userResponse.phone.isNullOrBlank()) {
             printOutput.appendLine()
             printOutput.append("Ваш телефон ${userResponse.phone}")
         }
-        if(!userResponse.address.isNullOrBlank()){
+        if (!userResponse.address.isNullOrBlank()) {
             printOutput.appendLine()
             printOutput.append("Ваш адесс ${userResponse.address}")
         }
+        if (!userResponse.favouriteList.isNullOrEmpty()) {
+            printOutput.appendLine()
+            printOutput.append("Ваше избранное:${printFavouriteList(userResponse)}")
+        }
         return printOutput.toString()
+
+     }
+
+    private fun printFavouriteList(userResponse: UserResponse): String {
+       return userResponse.favouriteList.map{
+            it.toString()
+        }.joinToString ( "\n" )
     }
 }

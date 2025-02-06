@@ -4,7 +4,6 @@ import org.example.data.Model.ShoesDTO
 import org.example.domein.Request.ShoesAddRequest
 import org.example.domein.Request.UpdateShoesRequest
 
-interface ShoesRepository {
     interface ShoesRepository {
         fun addShoes(addShoesRequest: ShoesAddRequest): ShoesDTO
         fun getAllShoes(): List<ShoesDTO>
@@ -12,5 +11,3 @@ interface ShoesRepository {
         fun findShoesById(shoesId: Int): ShoesDTO?
         fun addShoesById(updateShoesRequest: UpdateShoesRequest): ShoesDTO
     }
-
-}
