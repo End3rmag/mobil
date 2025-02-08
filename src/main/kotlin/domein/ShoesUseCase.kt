@@ -10,4 +10,4 @@ interface ShoesUseCase {
     fun removeShoesById(shoesID:Int):Boolean
     fun updateShoes(updateShoesRequest: UpdateShoesRequest): ShoesResponse
     fun getAllFilterShoes (getAllFilterShoesRequest: GetAllFilterShoesRequest): List<ShoesResponse>
-}
+}//s

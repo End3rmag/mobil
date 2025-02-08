@@ -141,3 +141,4 @@ class ShoesUi(private val shoesUseCase: ShoesUseCase,
         shoesResponseList.forEach { shoesResponse -> println("${shoesResponse.shoesDescription} - ${shoesResponse.shoesName}") }
     }
 
+//s

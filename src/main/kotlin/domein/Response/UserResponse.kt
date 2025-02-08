@@ -8,4 +8,4 @@ data class UserResponse (
     var phone:String? = null,
     var address:String? = null,
     var favouriteList: List<ShoesResponse> = emptyList()
-)
+)//s

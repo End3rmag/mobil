@@ -155,4 +155,4 @@ data class MainMenuUi( val userUi: UserUi, var shoesUi: ShoesUi) {
         }
     }
 
-}
+}//s

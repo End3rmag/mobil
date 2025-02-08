@@ -7,4 +7,4 @@ data class UpdateShoesRequest(
     val shoesDescription: String,
     val shoesUrl: String,
     val category: String,
-)
+)//s

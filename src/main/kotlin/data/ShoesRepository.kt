@@ -12,3 +12,4 @@ import org.example.domein.Request.UpdateShoesRequest
         fun addShoesById(updateShoesRequest: UpdateShoesRequest): ShoesDTO
     }
 
+//s

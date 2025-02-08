@@ -5,4 +5,4 @@ data class ShoesAddRequest(
     val shoesDescription: String,
     val shoesUrl: String,
     val category: String,
-)
+)//s

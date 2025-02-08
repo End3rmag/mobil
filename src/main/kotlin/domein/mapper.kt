@@ -22,3 +22,4 @@ fun ShoesDTOToShoesResponse(shoesDTO: ShoesDTO) = ShoesResponse(
     shoesUrl = shoesDTO.shoesURL,
     category = shoesDTO.cotegory
 )
+//s

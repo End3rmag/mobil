@@ -8,4 +8,4 @@ interface UserUseCase {
     fun registration(registrationRequest: RegistrationRequest):UserResponse
     fun changePassword(changePasswordRequest: ChangePasswordRequest)
     fun changeProfile(changeProfileRequest: ChangeProfileRequest)
-}
+}//s
