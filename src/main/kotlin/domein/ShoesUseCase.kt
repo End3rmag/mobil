@@ -1,6 +1,5 @@
 package org.example.domein
 
-import org.example.data.Model.ShoesDTO
 import org.example.domein.Request.GetAllFilterShoesRequest
 import org.example.domein.Request.ShoesAddRequest
 import org.example.domein.Request.UpdateShoesRequest

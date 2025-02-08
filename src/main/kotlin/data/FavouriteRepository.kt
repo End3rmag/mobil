@@ -1,6 +1,6 @@
 package org.example.data
 
-import org.example.data.Model.FavouriteDTO
+
 import org.example.data.Model.ShoesDTO
 import org.example.domein.Request.AddFavouriteRequest
 

@@ -1,6 +1,5 @@
 package org.example.domein
 
-import org.example.data.Model.UserDTO
 import org.example.domein.Request.*
 import org.example.domein.Response.UserResponse
 
