@@ -1,22 +1,23 @@
 package org.example
 
-import org.example.data.ShoesRepositoryImpl
-import org.example.data.UserRepository
-import org.example.data.UserRepositoryImpl
-import org.example.domein.ShoesUseCaseImpl
+import ShoesRepositoryImpl
+import ShoesUi
+import ShoesUseCaseImpl
+import org.example.data.*
 import org.example.domein.UserUseCaseImpl
 import org.example.ui.MainMenuUi
-import org.example.ui.ShoesUi
+
 import org.example.ui.UserUi
 
 
 fun main() {
-    val userRepository = UserRepositoryImpl()
-    val userUseCase = UserUseCaseImpl(userRepository)
-    val userUi = UserUi(userUseCase)
     val shoesRepository = ShoesRepositoryImpl()
+    val favouriteRepository = FavouriteRepositoryIMPL(shoesRepository)
+    val userRepository = UserRepositoryImpl()
+    val userUseCase = UserUseCaseImpl(userRepository, favouriteRepository, shoesRepository )
     val shoesUseCase = ShoesUseCaseImpl(shoesRepository)
-    val shoesUi = ShoesUi(shoesUseCase)
+    val userUi = UserUi(userUseCase, favouriteRepository)
+    val shoesUi = ShoesUi(shoesUseCase, userUi, favouriteRepository)
     val mainMenuUi = MainMenuUi(userUi, shoesUi)
     mainMenuUi.displayAutorizationMenu()
 }

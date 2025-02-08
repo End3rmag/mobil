@@ -6,4 +6,8 @@ data class ShoesResponse (
     var shoesDescription: String,
     var shoesUrl: String,
     var category: String,
-)
+){
+    override fun toString(): String {
+        return "$shoesName - $shoesDescription"
+    }
+}

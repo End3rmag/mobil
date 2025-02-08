@@ -1,5 +1,6 @@
 package org.example.data
 
+import org.example.data.Model.FavouriteDTO
 import org.example.data.Model.ShoesDTO
 import org.example.data.Model.UserDTO
 
@@ -10,8 +11,28 @@ val shoesList = listOf(
         shoesDescription = "dasgasdgsdagsdafd",
         shoesURL = "3",
         cotegory = "1"
+    ),
+    ShoesDTO(
+        shoesId = 2,
+        shoesName = "Abibas",
+        shoesDescription = "das",
+        shoesURL = "5",
+        cotegory = "123"
+    )
+
+)
+
+val favouriteList = listOf(
+    FavouriteDTO(
+        1,
+        1
+    ),
+    FavouriteDTO(
+        2,
+        2
     )
 )
+
 
 
 val userList = listOf(
@@ -26,7 +47,7 @@ val userList = listOf(
         Id = 2,
         firstName = "Kate",
         password = "456",
-        email = "hgukj@mail.ru"
+        email = "456"
     ),
     UserDTO(
         Id = 3,
